@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     {
 
         movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        gameObject.transform.Rotate(0, 0, movement.x);
+        gameObject.transform.Rotate(0, 0, -movement.x);
     }
 
     void moveCharacter(Vector2 direction)
