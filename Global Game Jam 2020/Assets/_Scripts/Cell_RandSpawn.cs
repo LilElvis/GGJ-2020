@@ -8,15 +8,20 @@ public class Cell_RandSpawn : MonoBehaviour
     //Cell Objects
     public GameObject whiteBloodCell;
     public GameObject redBloodCell;
-    private BoxCollider boxCol;
 
+    [SerializeField]
+    private BoxCollider[] collidersObj;
+    //private BoxCollider[] boxCol;
     //Variables
     private bool cellSpawnComplete = false;
+    public int maxCellOnScreen = 100;
+    private int cellsOnScreen = 0;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        boxCol = GameObject.FindObjectOfType<BoxCollider>();
+        collidersObj = gameObject.GetComponentsInChildren<BoxCollider>();
     }
 
     // Update is called once per frame
@@ -26,35 +31,48 @@ public class Cell_RandSpawn : MonoBehaviour
         {
             SpawnCell();
         }
+
     }
 
     public void SpawnCell()
-    {
-        cellSpawnComplete = false;
-        while (!cellSpawnComplete)
+    {    
+        cellsOnScreen = redCellScript.redCellCount + whiteCellScript.whiteCellCount;
+        if (cellsOnScreen < maxCellOnScreen)
         {
-            Vector3 posWorld = this.transform.position + new Vector3(Random.Range(-boxCol.size.x / 2, boxCol.size.x / 2), Random.Range(-boxCol.size.z / 2, boxCol.size.z / 2), 0);
-            Vector3 posView = Camera.main.WorldToViewportPoint(posWorld);
-
-            if ((posView.x > -0.0f && posView.y < 1.0f) && (posView.y > 0.0f && posView.y < 1.0f))
+            cellSpawnComplete = false;
+            while (!cellSpawnComplete)
             {
-                Debug.Log("Cell Spawn Failed: Item in camera space");
-                return;
-            }
+                int randCol = Random.Range(0, collidersObj.Length);
 
-            if (Random.Range(0.0f, 1.0f) > 0.2f)
-            {
-                Instantiate(redBloodCell, posWorld, Quaternion.identity);
-                Debug.Log("Cell Spawn Complete: Red Cell " + posWorld);
-            }
-            else
-            {
-                Instantiate(whiteBloodCell, posWorld, Quaternion.identity);
-                Debug.Log("Cell Spawn Complete: White Cell" + posWorld);
-            }
+                Vector3 posWorld = collidersObj[randCol].transform.position + new Vector3(Random.Range(-collidersObj[randCol].size.x / 2, collidersObj[randCol].size.x / 2), Random.Range(-collidersObj[randCol].size.z / 2, collidersObj[randCol].size.z / 2), 0);
+                Vector3 posView = Camera.main.WorldToViewportPoint(posWorld);
 
-            cellSpawnComplete = true;
-            break;
+                if ((posView.x > -0.0f && posView.y < 1.0f) && (posView.y > 0.0f && posView.y < 1.0f))
+                {
+                    Debug.Log("Cell Spawn Failed: Item in camera space");
+                    return;
+                }
+
+
+                //Randomize Type of Cell (White/Red)
+                if (Random.Range(0.0f, 1.0f) > 0.2f) //80% Chance
+                {
+                    Instantiate(redBloodCell, posWorld, Quaternion.identity);
+                    Debug.Log("Cell Spawn Complete: Red Cell " + posWorld);
+                }
+                else //20% Chance
+                {
+                    Instantiate(whiteBloodCell, posWorld, Quaternion.identity);
+                    Debug.Log("Cell Spawn Complete: White Cell" + posWorld);
+                }
+
+                
+                cellSpawnComplete = true;
+                break;
+            }
+            
         }
+        cellsOnScreen = redCellScript.redCellCount + whiteCellScript.whiteCellCount;
+        //print("Total cells: " + cellsOnScreen);
     }
 }
