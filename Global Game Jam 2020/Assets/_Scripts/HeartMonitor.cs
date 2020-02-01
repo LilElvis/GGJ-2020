@@ -26,7 +26,7 @@ public class HeartMonitor : MonoBehaviour
     {
         amplitudeVector = new Vector3(0.0f, amplitude, 0.0f);
 
-        tValue = 0.5f * Mathf.Sin(count * 10.0f) + 0.5f;
+        tValue = 0.5f * Mathf.Sin(count * -10.0f) + 0.5f;
 
         emitterTransform.position = Vector3.Lerp(localTransform.position + amplitudeVector, localTransform.position - amplitudeVector, tValue);
 
