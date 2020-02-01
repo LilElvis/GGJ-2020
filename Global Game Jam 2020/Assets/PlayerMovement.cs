@@ -4,24 +4,30 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public CharacterController cc;
-    public float speed = 10;
-    public Vector2 movement;
+    public Rigidbody rb;
+    public float speed = 5;
     
     // Start is called before the first frame update
     void Start()
     {
-        cc = this.GetComponent<CharacterController>();
+        rb = this.GetComponent<Rigidbody>();
+      
     }   
 
     // Update is called once per frame
     void Update()
     {
-        movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        movement.Normalize();
-        cc.Move(movement * Time.deltaTime * speed);
-       
+
+        Vector2 direction = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+
+
+        rb.AddForce(direction * speed);
     }
 
-   
+    void FixedUpdate()
+    {
+
+    }
+
+
 }
