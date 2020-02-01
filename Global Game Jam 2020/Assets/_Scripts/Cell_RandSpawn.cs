@@ -36,7 +36,7 @@ public class Cell_RandSpawn : MonoBehaviour
             Vector3 posWorld = this.transform.position + new Vector3(Random.Range(-boxCol.size.x / 2, boxCol.size.x / 2), 0, Random.Range(-boxCol.size.z / 2, boxCol.size.z / 2));
             Vector3 posView = Camera.main.WorldToViewportPoint(posWorld);
 
-            if ((posView.x > -0.1 && posView.y < 1.1) && (posView.y > 0.1 && posView.y < 1.1))
+            if ((posView.x > -0.0f && posView.y < 1.0f) && (posView.y > 0.0f && posView.y < 1.0f))
             {
                 Debug.Log("Cell Spawn Failed: Item in camera space");
                 return;
