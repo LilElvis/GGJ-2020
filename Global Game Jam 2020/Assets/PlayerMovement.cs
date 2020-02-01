@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 5;
     public float friction;
 
+    float yAxis, xAxis;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,21 +20,22 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        gameObject.transform.Rotate(0, 0, movement.x);
-    }
-
-    void moveCharacter(Vector2 direction)
-
-    {
-
-        rb.AddRelativeForce(direction * speed);
+        
+         yAxis = Input.GetAxis("Vertical");
+         xAxis = Input.GetAxis("Horizontal");
+        
     }
     void FixedUpdate()
     {
-        moveCharacter(movement);
+        moveForward(yAxis);
 
+    }
+
+    void moveForward(float thrust)
+    {
+        Vector2 force = transform.up * thrust;
+
+        rb.AddRelativeForce(force);
     }
 
 
