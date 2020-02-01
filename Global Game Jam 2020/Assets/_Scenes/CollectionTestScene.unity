@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfefffb289dff5e4e87ccb1001abb308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whiteBloodCell: {fileID: 4849716191455795770, guid: c91253a10ee76a94e9440008bf583f89,
+  whiteBloodCell: {fileID: 2862345713913141851, guid: c91253a10ee76a94e9440008bf583f89,
     type: 3}
   redBloodCell: {fileID: 5094598417716389269, guid: 163af7bdf942a58419e5f8129a55ca63,
     type: 3}
