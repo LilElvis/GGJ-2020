@@ -24,7 +24,7 @@ public class Collection : MonoBehaviour
 
     private void OnTriggerEnter (Collider other)
     {
-        if (other.gameObject.tag == "RedCell")
+        if (other.gameObject.tag == "RedCell" || other.gameObject.tag == "WhiteCell")
         {
             Debug.Log("Work!");
             other.gameObject.transform.SetParent(transform);
