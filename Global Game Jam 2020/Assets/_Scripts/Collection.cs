@@ -19,7 +19,7 @@ public class Collection : MonoBehaviour
 
         Vector3 offset = new Vector3(Mathf.Sin(angle), Mathf.Cos(angle)) * radius;
         transform.position = centre + offset;*/
-        transform.Rotate(0.0f, 0.0f, 1.0f);
+        transform.Rotate(0.0f, 0.0f, 0.3f);
     }
 
     private void OnTriggerEnter (Collider other)
