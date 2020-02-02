@@ -5,6 +5,7 @@ using UnityEngine;
 public class WoundManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> woundList;
+    [SerializeField] private List<GameObject> warningList;
 
     private float woundBuffer = 15.0f;
 
@@ -23,7 +24,10 @@ public class WoundManager : MonoBehaviour
         int index = Random.Range(0, woundList.Capacity - 1);
 
         if (!woundList[index].activeInHierarchy)
+        {
             woundList[index].SetActive(true);
+            warningList[index].SetActive(true);
+        }
         else
             ActivateRandomWound();
     }

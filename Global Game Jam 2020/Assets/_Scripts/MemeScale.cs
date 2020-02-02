@@ -8,6 +8,6 @@ public class MemeScale : MonoBehaviour
 
     void Update()
     {
-        logoTransform.localScale = new Vector3(logoTransform.localScale.x + 0.001f, 2.0f, 2.0f);
+        logoTransform.localScale = new Vector3(logoTransform.localScale.x + 0.01f, 2.0f, 2.0f);
     }
 }
