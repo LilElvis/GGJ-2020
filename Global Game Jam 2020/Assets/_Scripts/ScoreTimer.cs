@@ -11,7 +11,15 @@ public class ScoreTimer : MonoBehaviour
     private float seconds;
     private float minutes;
 
+    public FileReadWrite readWrite;
+    private string[] highScores;
+
     private bool paused = true;
+
+    private void Start()
+    {
+        highScores = new string[5];
+    }
 
     void Update()
     {
@@ -51,6 +59,32 @@ public class ScoreTimer : MonoBehaviour
             paused = true;
 
             //TODO, if it's a high score, write the score to the file
+            highScores = readWrite.ReadFile();
+
+            float tempTime;
+            int tempMin;
+            int tempSec;
+
+            foreach (string aScore in highScores)
+            {
+                /*for (int i = 0; i < aScore.Length; i++)
+                {
+                    tempTime = aScore[i];
+                }*/
+                tempTime = float.Parse(aScore);
+                Debug.Log(tempTime);
+                if (tempTime > scoreTime)
+                {
+                    continue;
+                }
+                else if (tempTime < scoreTime)
+                {
+                    readWrite.WriteFile(scoreTime);
+                }
+                //tempMin = (int)(tempTime / 60f);
+                //tempSec = (int)(tempTime % 60f);
+            }
+
         }
 
         if (eventsHandled.Contains(messageType))
