@@ -18,20 +18,15 @@ public class Cell_RandSpawn : MonoBehaviour
     public int maxCellOnScreen = 100;
     private int cellsOnScreen = 0;
     
-
-    // Start is called before the first frame update
     void Start()
     {
         collidersObj = gameObject.GetComponentsInChildren<BoxCollider>();
+
+        InvokeRepeating("SpawnCell", 10.0f, 1.0f);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            SpawnCell();
-        }
 
     }
 
