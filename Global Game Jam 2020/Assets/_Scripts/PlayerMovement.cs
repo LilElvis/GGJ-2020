@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody rb;
     public Transform meshTransform;
+    public Transform lightTransform;
     public Animator animator;
     public Vector2 movement;
     public float maxVelocity = 100;
@@ -30,7 +31,9 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("Horizontal Axis", xAxis);
         Rotate(transform, xAxis * -rotationSpeed);
 
-        meshTransform.localScale = new Vector3(1.0f, Mathf.Max(1.0f, (yAxis * 1.2f)), 1.0f);
+        lightTransform.Rotate(1.0f, 0.0f, 0.0f);
+
+        meshTransform.localScale = new Vector3(1.0f, Mathf.Max(1.0f, (yAxis * 1.1f)), 1.0f);
 
     }
     void FixedUpdate()
