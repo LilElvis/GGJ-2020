@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4351915092576653602}
   - component: {fileID: 5950660755212612745}
   - component: {fileID: 6440796470838901772}
-  - component: {fileID: 2049053065158621040}
+  - component: {fileID: -4901999379746181706}
   m_Layer: 0
   m_Name: RedBloodTest
   m_TagString: RedCell
@@ -94,7 +94,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2049053065158621040
+--- !u!114 &-4901999379746181706
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

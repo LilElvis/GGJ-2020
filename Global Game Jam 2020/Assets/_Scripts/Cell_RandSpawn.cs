@@ -8,6 +8,7 @@ public class Cell_RandSpawn : MonoBehaviour
     //Cell Objects
     public GameObject whiteBloodCell;
     public GameObject redBloodCell;
+    public Camera camera;
 
     [SerializeField]
     private BoxCollider[] collidersObj;
@@ -45,7 +46,7 @@ public class Cell_RandSpawn : MonoBehaviour
                 int randCol = Random.Range(0, collidersObj.Length);
 
                 Vector3 posWorld = collidersObj[randCol].transform.position + new Vector3(Random.Range(-collidersObj[randCol].size.x / 2, collidersObj[randCol].size.x / 2), Random.Range(-collidersObj[randCol].size.z / 2, collidersObj[randCol].size.z / 2), 0);
-                Vector3 posView = Camera.main.WorldToViewportPoint(posWorld);
+                Vector3 posView = camera.WorldToViewportPoint(posWorld);
 
                 if ((posView.x > -0.0f && posView.y < 1.0f) && (posView.y > 0.0f && posView.y < 1.0f))
                 {

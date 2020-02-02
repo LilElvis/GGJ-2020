@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 8136033773110581126}
   - component: {fileID: 3860230649589043925}
   - component: {fileID: 3860230649589043924}
+  - component: {fileID: 6765600883573322881}
   m_Layer: 0
   m_Name: GAMEJAM_2020_BloodCell
   m_TagString: RedCell
@@ -180,6 +181,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6765600883573322881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5094598417716389269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4044e04191385df48a34af071908479c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5247962593416703978
 GameObject:
   m_ObjectHideFlags: 0
