@@ -9,6 +9,9 @@ public class Wounds : MonoBehaviour
     private int redCellRequirement = 1;
     private int whiteCellRequirement = 1;
 
+    [SerializeField] private TextMesh whiteText;
+    [SerializeField] private TextMesh redText;
+
     [SerializeField] private GameObject wound;
 
     private void Update()
@@ -36,6 +39,9 @@ public class Wounds : MonoBehaviour
             --whiteCellRequirement;
             Destroy(other.gameObject);
         }
+
+        redText.text = redCellRequirement.ToString();
+        whiteText.text = whiteCellRequirement.ToString();
     }
 
     private void OnEnable()
@@ -45,6 +51,9 @@ public class Wounds : MonoBehaviour
         redCellRequirement = Random.Range(1, 12);
 
         whiteCellRequirement = Random.Range(1, 4);
+
+        redText.text = redCellRequirement.ToString();
+        whiteText.text = whiteCellRequirement.ToString();
     }
 
     private void OnDisable()
