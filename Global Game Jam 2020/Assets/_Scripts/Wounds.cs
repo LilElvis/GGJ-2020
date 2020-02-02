@@ -59,5 +59,7 @@ public class Wounds : MonoBehaviour
     private void OnDisable()
     {
         activeWoundCount--;
+
+        HeartMonitor.currentHealth += 20.0f;
     }
 }

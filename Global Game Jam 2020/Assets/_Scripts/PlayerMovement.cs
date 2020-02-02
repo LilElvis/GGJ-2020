@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 movement;
     public float maxVelocity = 100;
     public float speed = 50;
-    public float rotationSpeed = 10;
+    public float rotationSpeed = 10.0f;
     public float friction;
     private bool paused = true;
 

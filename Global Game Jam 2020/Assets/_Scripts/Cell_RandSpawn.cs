@@ -51,7 +51,7 @@ public class Cell_RandSpawn : MonoBehaviour
 
 
                 //Randomize Type of Cell (White/Red)
-                if (Random.Range(0.0f, 1.0f) > 0.2f) //80% Chance
+                if (Random.Range(0.0f, 1.0f) > 0.3f) //70% Chance
                 {
                     Instantiate(redBloodCell, posWorld, Quaternion.identity);
                     //Debug.Log("Cell Spawn Complete: Red Cell " + posWorld);

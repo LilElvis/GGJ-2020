@@ -2744,7 +2744,7 @@ PrefabInstance:
     - target: {fileID: 4032490434074285927, guid: 0ed3b5d2cde09b84e919ede254d708b0,
         type: 3}
       propertyPath: rotationSpeed
-      value: 10
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4032490434074285927, guid: 0ed3b5d2cde09b84e919ede254d708b0,
         type: 3}

@@ -10,7 +10,7 @@ public class whiteCellScript : MonoBehaviour
     {
         whiteCellCount++;
         //print("White Cells: " + whiteCellCount);
-        //Destroy(gameObject, 5);
+        //Destroy(gameObject, 20.0f);
     }
 
     void OnDestroy()
