@@ -15,7 +15,7 @@ public class HeartMonitor : MonoBehaviour
     [SerializeField] private Transform localTransform;
     [SerializeField] private Transform emitterTransform;
     [Range(0.0f, 100.0f)] private float currentHealth = 100.0f;
-    private int woundCount = 0;
+    private bool paused = true;
 
     void Start()
     {
@@ -24,7 +24,8 @@ public class HeartMonitor : MonoBehaviour
 
     void Update()
     {
-        currentHealth = Mathf.Max(currentHealth - (0.005f * woundCount) + 0.002f, 0.0f);
+        if(!paused)
+        currentHealth = Mathf.Max(currentHealth - (0.005f * Wounds.activeWoundCount) + 0.002f, 0.0f);
 
         amplitudeVector = new Vector3(0.0f, amplitude, 0.0f);
 
@@ -39,17 +40,25 @@ public class HeartMonitor : MonoBehaviour
             if(currentHealth >= 1.0f)
             beepSource.PlayOneShot(beepSound);
 
+            print("Number of active wounds: " + Wounds.activeWoundCount);
+
             StartCoroutine(HeartBeat());
             count = 0.0f;
         }
 
         if (currentHealth < 1.0f)
             beepSource.PlayOneShot(flatLine);
+
+        if (currentHealth <= 0.0f)
+        {
+            //Fire an event to signal a game over
+            string value = EventRelay.RelayEvent(EventRelay.EventMessageType.GameOver, this);
+            Debug.Log("GameOver event was seen by: " + value);
+        }
     }
 
     IEnumerator HeartBeat()
-    { 
-
+    {
         amplitude = 5.0f * (currentHealth * 0.01f);
 
         yield return new WaitForSeconds(period);
@@ -57,4 +66,39 @@ public class HeartMonitor : MonoBehaviour
         amplitude = 0.0f;
     }
 
+    //Event Listner---------------------------------------------------------------------------------
+    public List<EventRelay.EventMessageType> eventsHandled = new List<EventRelay.EventMessageType>();
+
+    void OnEnable()
+    {
+        EventRelay.OnEventAction += HandleEvent;
+    }
+
+    void OnDisable()
+    {
+        EventRelay.OnEventAction -= HandleEvent;
+    }
+
+    string HandleEvent(EventRelay.EventMessageType messageType, MonoBehaviour sender)
+    {
+        if (messageType == EventRelay.EventMessageType.GameStart)
+        {
+            paused = false;
+        }
+        if (messageType == EventRelay.EventMessageType.GameOver)
+        {
+            paused = true;
+        }
+
+        if (eventsHandled.Contains(messageType))
+        {
+            Debug.Log(this.name + " handled event: " + messageType + " from sender: " + sender);
+            return this.ToString();
+        }
+        else
+        {
+            return this.ToString();
+        }
+    }
+    //------------------------------------------------------------------------------------------------
 }

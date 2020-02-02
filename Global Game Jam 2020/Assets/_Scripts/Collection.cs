@@ -26,7 +26,7 @@ public class Collection : MonoBehaviour
     {
         if (other.gameObject.tag == "RedCell" || other.gameObject.tag == "WhiteCell")
         {
-            Debug.Log("Work!");
+            //Debug.Log("Work!");
             other.gameObject.transform.SetParent(transform);
         }
     }

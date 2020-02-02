@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 50;
     public float rotationSpeed = 10;
     public float friction;
+    private bool paused = true;
 
     float yAxis, xAxis;
     // Start is called before the first frame update
@@ -25,9 +26,12 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!paused)
+        {
+            yAxis = Input.GetAxis("Vertical");
+            xAxis = Input.GetAxis("Horizontal");
+        }
 
-        yAxis = Input.GetAxis("Vertical");
-        xAxis = Input.GetAxis("Horizontal");
         animator.SetFloat("Horizontal Axis", xAxis);
         Rotate(transform, xAxis * -rotationSpeed);
 
@@ -61,4 +65,40 @@ public class PlayerMovement : MonoBehaviour
     {
         t.Rotate(0, 0, amount);
     }
+
+    //Event Listner---------------------------------------------------------------------------------
+    public List<EventRelay.EventMessageType> eventsHandled = new List<EventRelay.EventMessageType>();
+
+    void OnEnable()
+    {
+        EventRelay.OnEventAction += HandleEvent;
+    }
+
+    void OnDisable()
+    {
+        EventRelay.OnEventAction -= HandleEvent;
+    }
+
+    string HandleEvent(EventRelay.EventMessageType messageType, MonoBehaviour sender)
+    {
+        if (messageType == EventRelay.EventMessageType.GameStart)
+        {
+            paused = false;
+        }
+        if (messageType == EventRelay.EventMessageType.GameOver)
+        {
+            paused = true;
+        }
+
+        if (eventsHandled.Contains(messageType))
+        {
+            Debug.Log(this.name + " handled event: " + messageType + " from sender: " + sender);
+            return this.ToString();
+        }
+        else
+        {
+            return this.ToString();
+        }
+    }
+    //------------------------------------------------------------------------------------------------
 }

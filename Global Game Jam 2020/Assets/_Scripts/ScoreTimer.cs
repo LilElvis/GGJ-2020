@@ -10,22 +10,59 @@ public class ScoreTimer : MonoBehaviour
 
     private float seconds;
     private float minutes;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
+    private bool paused = true;
+
     void Update()
     {
-        //timerText1.text = minutes.ToString("00") + ":" + seconds.ToString("00");
-        scoreTime += Time.deltaTime;
+        if (!paused)
+        {
+            //timerText1.text = minutes.ToString("00") + ":" + seconds.ToString("00");
+            scoreTime += Time.deltaTime;
 
-        minutes = (int)(scoreTime / 60f);
-        seconds = (int)(scoreTime % 60f);
+            minutes = (int)(scoreTime / 60f);
+            seconds = (int)(scoreTime % 60f);
 
-        timerText.text = minutes.ToString("0") + ":" + seconds.ToString("00");
-
+            timerText.text = minutes.ToString("0") + " : " + seconds.ToString("00");
+        }
     }
+
+    //Event Listner---------------------------------------------------------------------------------
+    public List<EventRelay.EventMessageType> eventsHandled = new List<EventRelay.EventMessageType>();
+
+    void OnEnable()
+    {
+        EventRelay.OnEventAction += HandleEvent;
+    }
+
+    void OnDisable()
+    {
+        EventRelay.OnEventAction -= HandleEvent;
+    }
+
+    string HandleEvent(EventRelay.EventMessageType messageType, MonoBehaviour sender)
+    {
+        if (messageType == EventRelay.EventMessageType.GameStart)
+        {
+            paused = false;
+        }
+        if (messageType == EventRelay.EventMessageType.GameOver)
+        {
+            paused = true;
+
+            //TODO, if it's a high score, write the score to the file
+        }
+
+        if (eventsHandled.Contains(messageType))
+        {
+            Debug.Log(this.name + " handled event: " + messageType + " from sender: " + sender);
+            return this.ToString();
+        }
+        else
+        {
+            return this.ToString();
+        }
+    }
+    //------------------------------------------------------------------------------------------------
+
 }

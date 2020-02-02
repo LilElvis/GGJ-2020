@@ -50,7 +50,7 @@ public class Cell_RandSpawn : MonoBehaviour
 
                 if ((posView.x > -0.0f && posView.y < 1.0f) && (posView.y > 0.0f && posView.y < 1.0f))
                 {
-                    Debug.Log("Cell Spawn Failed: Item in camera space");
+                    //Debug.Log("Cell Spawn Failed: Item in camera space");
                     return;
                 }
 
@@ -59,12 +59,12 @@ public class Cell_RandSpawn : MonoBehaviour
                 if (Random.Range(0.0f, 1.0f) > 0.2f) //80% Chance
                 {
                     Instantiate(redBloodCell, posWorld, Quaternion.identity);
-                    Debug.Log("Cell Spawn Complete: Red Cell " + posWorld);
+                    //Debug.Log("Cell Spawn Complete: Red Cell " + posWorld);
                 }
                 else //20% Chance
                 {
                     Instantiate(whiteBloodCell, posWorld, Quaternion.identity);
-                    Debug.Log("Cell Spawn Complete: White Cell" + posWorld);
+                    //Debug.Log("Cell Spawn Complete: White Cell" + posWorld);
                 }
 
                 
