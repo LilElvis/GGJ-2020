@@ -11,10 +11,11 @@ public class HeartMonitor : MonoBehaviour
     private Vector3 amplitudeVector;
     [SerializeField] private AudioSource beepSource;
     [SerializeField] private AudioClip beepSound;
+    [SerializeField] private AudioClip flatLine;
     [SerializeField] private Transform localTransform;
     [SerializeField] private Transform emitterTransform;
     [Range(0.0f, 100.0f)] private float currentHealth = 100.0f;
-    private int woundCount = 1;
+    private int woundCount = 0;
 
     void Start()
     {
@@ -23,7 +24,7 @@ public class HeartMonitor : MonoBehaviour
 
     void Update()
     {
-        currentHealth = currentHealth - (0.1f * woundCount);
+        currentHealth = Mathf.Max(currentHealth - (0.005f * woundCount) + 0.002f, 0.0f);
 
         amplitudeVector = new Vector3(0.0f, amplitude, 0.0f);
 
@@ -35,10 +36,15 @@ public class HeartMonitor : MonoBehaviour
 
         if (count > Mathf.Max((period + 0.05f), (currentHealth * 0.02f)))
         {
-            StartCoroutine(HeartBeat());
+            if(currentHealth >= 1.0f)
             beepSource.PlayOneShot(beepSound);
+
+            StartCoroutine(HeartBeat());
             count = 0.0f;
         }
+
+        if (currentHealth < 1.0f)
+            beepSource.PlayOneShot(flatLine);
     }
 
     IEnumerator HeartBeat()

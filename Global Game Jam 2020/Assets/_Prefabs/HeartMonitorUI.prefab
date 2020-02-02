@@ -5185,6 +5185,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beepSource: {fileID: 6874938826050005834}
   beepSound: {fileID: 8300000, guid: b1c95faff1ff0184aad5ff714892b33d, type: 3}
+  flatLine: {fileID: 8300000, guid: 2ca2e6d11ae7cd849805588ec2b497c8, type: 3}
   localTransform: {fileID: 1058508617407819364}
   emitterTransform: {fileID: 1058508618078598028}
-  currentHealth: 100
