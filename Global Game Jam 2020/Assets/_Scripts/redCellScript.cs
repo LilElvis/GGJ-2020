@@ -10,7 +10,7 @@ public class redCellScript : MonoBehaviour
     {
         redCellCount++;
         //print("Red Cells: " + redCellCount);
-        //Destroy(gameObject, 5);
+        //Destroy(gameObject, 20.0f);
     }
 
     void OnDestroy()

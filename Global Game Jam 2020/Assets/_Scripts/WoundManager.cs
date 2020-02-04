@@ -7,7 +7,8 @@ public class WoundManager : MonoBehaviour
     [SerializeField] private List<GameObject> woundList;
     [SerializeField] private List<GameObject> warningList;
 
-    private float woundBuffer = 15.0f;
+
+    private float woundBuffer = 20.0f;
 
     void Start()
     {
@@ -16,6 +17,10 @@ public class WoundManager : MonoBehaviour
 
     void Update()
     {
+        if (Wounds.activeWoundCount <= 3)
+        {
+            woundBuffer = 25.0f;
+        }
 
     }
 
