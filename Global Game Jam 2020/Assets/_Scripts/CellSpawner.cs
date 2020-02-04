@@ -8,7 +8,7 @@ public class CellSpawner : MonoBehaviour
     //Cell Objects
     public GameObject whiteBloodCell;
     public GameObject redBloodCell;
-    public Camera camera;
+    public Camera mainCamera = null;
 
     [SerializeField]
     private BoxCollider[] collidersObj;
@@ -41,7 +41,7 @@ public class CellSpawner : MonoBehaviour
                 int randCol = Random.Range(0, collidersObj.Length);
 
                 Vector3 posWorld = collidersObj[randCol].transform.position + new Vector3(Random.Range(-collidersObj[randCol].size.x / 2, collidersObj[randCol].size.x / 2), Random.Range(-collidersObj[randCol].size.z / 2, collidersObj[randCol].size.z / 2), 0);
-                Vector3 posView = camera.WorldToViewportPoint(posWorld);
+                Vector3 posView = mainCamera.WorldToViewportPoint(posWorld);
 
                 if ((posView.x > -0.0f && posView.y < 1.0f) && (posView.y > 0.0f && posView.y < 1.0f))
                 {
@@ -51,12 +51,12 @@ public class CellSpawner : MonoBehaviour
 
 
                 //Randomize Type of Cell (White/Red)
-                if (Random.Range(0.0f, 1.0f) > 0.3f) //70% Chance
+                if (Random.Range(0.0f, 1.0f) > 0.225f) //77.5% Chance
                 {
                     Instantiate(redBloodCell, posWorld, Quaternion.identity);
                     //Debug.Log("Cell Spawn Complete: Red Cell " + posWorld);
                 }
-                else //20% Chance
+                else //22.5% Chance
                 {
                     Instantiate(whiteBloodCell, posWorld, Quaternion.identity);
                     //Debug.Log("Cell Spawn Complete: White Cell" + posWorld);

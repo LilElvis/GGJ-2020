@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Tutorial : MonoBehaviour
 {
-    [SerializeField] private Text TutorialText;
+    [SerializeField] private Text TutorialText = null;
 
     void Update()
     {

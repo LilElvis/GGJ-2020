@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class WoundManager : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> woundList;
-    [SerializeField] private List<GameObject> warningList;
+    [SerializeField] private List<GameObject> woundList = null;
+    [SerializeField] private List<GameObject> warningList = null;
 
 
-    private float woundBuffer = 20.0f;
+    private float woundBuffer = 22.5f;
+    private float woundScaleFactor = 0.25f;
+    private float minimumWOundBuffer = 15.0f;
 
     void Start()
     {
@@ -17,10 +19,7 @@ public class WoundManager : MonoBehaviour
 
     void Update()
     {
-        if (Wounds.activeWoundCount <= 3)
-        {
-            woundBuffer = 25.0f;
-        }
+        
 
     }
 
@@ -32,6 +31,8 @@ public class WoundManager : MonoBehaviour
         {
             woundList[index].SetActive(true);
             warningList[index].SetActive(true);
+
+            woundBuffer = Mathf.Max((woundBuffer - woundScaleFactor), minimumWOundBuffer);
         }
         else
             ActivateRandomWound();

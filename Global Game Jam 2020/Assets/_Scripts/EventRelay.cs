@@ -12,7 +12,9 @@ public class EventRelay : MonoBehaviour
     public enum EventMessageType
     {
         GameStart,
-        GameOver
+        GameOver,
+        Scabbed,
+        Wounded
     }
 
     public static string RelayEvent(EventMessageType messageType, MonoBehaviour sender)

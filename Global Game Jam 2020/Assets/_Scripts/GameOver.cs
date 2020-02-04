@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class GameOver : MonoBehaviour
 {
-    [SerializeField] private Text gameOverText;
+    [SerializeField] private Text gameOverText = null;
 
     IEnumerator EndGame()
     {

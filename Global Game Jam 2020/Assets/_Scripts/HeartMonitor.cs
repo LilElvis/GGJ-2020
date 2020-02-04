@@ -9,11 +9,11 @@ public class HeartMonitor : MonoBehaviour
     private float tValue = 0.5f;
     private float period = 0.0f;
     private Vector3 amplitudeVector;
-    [SerializeField] private AudioSource beepSource;
-    [SerializeField] private AudioClip beepSound;
-    [SerializeField] private AudioClip flatLine;
-    [SerializeField] private Transform localTransform;
-    [SerializeField] private Transform emitterTransform;
+    [SerializeField] private AudioSource beepSource = null;
+    [SerializeField] private AudioClip beepSound = null;
+    [SerializeField] private AudioClip flatLine = null;
+    [SerializeField] private Transform localTransform = null;
+    [SerializeField] private Transform emitterTransform = null;
     [Range(0.0f, 100.0f)] static public float currentHealth = 100.0f;
     private bool paused = true;
 
