@@ -408,7 +408,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 114486418}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.805316, y: -45.319637, z: 71.98125}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -796,7 +796,7 @@ GameObject:
   - component: {fileID: 236058218}
   - component: {fileID: 236058217}
   m_Layer: 0
-  m_Name: EventSystem
+  m_Name: Event System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -862,7 +862,7 @@ GameObject:
   - component: {fileID: 252051878}
   - component: {fileID: 252051877}
   m_Layer: 5
-  m_Name: TutorialText
+  m_Name: Tutorial Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1496,7 +1496,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 873421928}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.805316, y: -45.319637, z: 71.98125}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2002,7 +2002,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1042167457}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.805316, y: -45.319637, z: 71.98125}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2402,7 +2402,7 @@ GameObject:
   - component: {fileID: 1342106800}
   - component: {fileID: 1342106799}
   m_Layer: 5
-  m_Name: TimerText
+  m_Name: Timer Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2492,7 +2492,7 @@ GameObject:
   - component: {fileID: 1414230078}
   - component: {fileID: 1414230079}
   m_Layer: 0
-  m_Name: RightArm
+  m_Name: Right Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2548,7 +2548,7 @@ GameObject:
   - component: {fileID: 1534081570}
   - component: {fileID: 1534081571}
   m_Layer: 0
-  m_Name: LeftLeg
+  m_Name: Left Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2597,7 +2597,7 @@ PrefabInstance:
     - target: {fileID: 1058508616591174058, guid: 7434d68ffe0ce3e46ab93901ee7a2a58,
         type: 3}
       propertyPath: m_Name
-      value: HeartMonitorUI
+      value: Heart Monitor UI
       objectReference: {fileID: 0}
     - target: {fileID: 1058508616591174059, guid: 7434d68ffe0ce3e46ab93901ee7a2a58,
         type: 3}
@@ -2927,7 +2927,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1727194241}
   m_Layer: 0
-  m_Name: WoundIndicators
+  m_Name: Wound Indicators
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2979,7 +2979,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1742074264}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.805316, y: -45.319637, z: 71.98125}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3086,7 +3086,7 @@ GameObject:
   - component: {fileID: 1819882960}
   - component: {fileID: 1819882961}
   m_Layer: 0
-  m_Name: LeftArm
+  m_Name: Left Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3941,7 +3941,7 @@ GameObject:
   - component: {fileID: 1983178918}
   - component: {fileID: 1983178919}
   m_Layer: 0
-  m_Name: RightLeg
+  m_Name: Right Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4297,7 +4297,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2109177523}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.805316, y: -45.319637, z: 71.98125}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4525,10 +4525,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7407410201435230481, guid: a3d292dc970d9c944aaa1d27c44d8ba7,
+        type: 3}
+      propertyPath: m_Name
+      value: Pancreas
+      objectReference: {fileID: 0}
     - target: {fileID: 7407410201877910072, guid: a3d292dc970d9c944aaa1d27c44d8ba7,
         type: 3}
       propertyPath: m_Name
       value: Body
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407410201892920205, guid: a3d292dc970d9c944aaa1d27c44d8ba7,
+        type: 3}
+      propertyPath: m_Name
+      value: Heart
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407410202002096783, guid: a3d292dc970d9c944aaa1d27c44d8ba7,
+        type: 3}
+      propertyPath: m_Name
+      value: Lungs
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407410202424511078, guid: a3d292dc970d9c944aaa1d27c44d8ba7,
+        type: 3}
+      propertyPath: m_Name
+      value: Liver
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407410202906735852, guid: a3d292dc970d9c944aaa1d27c44d8ba7,
+        type: 3}
+      propertyPath: m_Name
+      value: Stomach
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407410203235603286, guid: a3d292dc970d9c944aaa1d27c44d8ba7,
+        type: 3}
+      propertyPath: m_Name
+      value: Intestines
+      objectReference: {fileID: 0}
+    - target: {fileID: 8754486775745926158, guid: a3d292dc970d9c944aaa1d27c44d8ba7,
+        type: 3}
+      propertyPath: m_Name
+      value: Veins
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3d292dc970d9c944aaa1d27c44d8ba7, type: 3}
