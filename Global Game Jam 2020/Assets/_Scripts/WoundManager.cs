@@ -8,9 +8,9 @@ public class WoundManager : MonoBehaviour
     [SerializeField] private List<GameObject> warningList = null;
 
 
-    private float woundBuffer = 22.5f;
+    private float woundBuffer = 17.5f;
     private float woundScaleFactor = 0.25f;
-    private float minimumWOundBuffer = 15.0f;
+    private float minimumWOundBuffer = 10.0f;
 
     void Start()
     {

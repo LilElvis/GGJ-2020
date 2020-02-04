@@ -7,6 +7,8 @@ using UnityEngine;
 public class GameOver : MonoBehaviour
 {
     [SerializeField] private Text gameOverText = null;
+    [SerializeField] private AudioSource beepSource = null;
+    [SerializeField] private AudioClip flatLine = null;
 
     IEnumerator EndGame()
     {
@@ -35,6 +37,8 @@ public class GameOver : MonoBehaviour
         }
         if (messageType == EventRelay.EventMessageType.GameOver)
         {
+            beepSource.PlayOneShot(flatLine);
+
             gameOverText.text = "You died!";
 
             StartCoroutine(EndGame());

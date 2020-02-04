@@ -1883,6 +1883,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 21.193893, y: 9.999998, z: 5.508199}
   m_Center: {x: -2.8786943, y: 0.00000047683756, z: -51.562584}
+--- !u!82 &868411231 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6874938826050005834, guid: 7434d68ffe0ce3e46ab93901ee7a2a58,
+    type: 3}
+  m_PrefabInstance: {fileID: 1666582729}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &873421928
 GameObject:
   m_ObjectHideFlags: 0
@@ -4458,6 +4464,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverText: {fileID: 252051877}
+  beepSource: {fileID: 868411231}
+  flatLine: {fileID: 8300000, guid: 2ca2e6d11ae7cd849805588ec2b497c8, type: 3}
   eventsHandled: 
 --- !u!82 &1951771032
 AudioSource:

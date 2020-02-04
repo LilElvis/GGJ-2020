@@ -22,7 +22,7 @@ public class CellSpawner : MonoBehaviour
     {
         collidersObj = gameObject.GetComponentsInChildren<BoxCollider>();
 
-        InvokeRepeating("SpawnCell", 10.0f, 1.0f);
+        InvokeRepeating("SpawnCell", 10.0f, 1.5f);
     }
 
     void Update()
