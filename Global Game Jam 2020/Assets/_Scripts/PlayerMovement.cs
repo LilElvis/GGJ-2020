@@ -16,14 +16,13 @@ public class PlayerMovement : MonoBehaviour
     private bool paused = true;
 
     float yAxis, xAxis;
-    // Start is called before the first frame update
+
     void Start()
     {
         rb = this.GetComponent<Rigidbody>();
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(!paused)
@@ -58,7 +57,6 @@ public class PlayerMovement : MonoBehaviour
         float y = Mathf.Clamp(rb.velocity.y, -maxVelocity, maxVelocity);
 
         rb.velocity = new Vector2(x, y);
-
     }
 
     private void Rotate(Transform t, float amount)

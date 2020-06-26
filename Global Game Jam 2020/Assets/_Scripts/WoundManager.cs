@@ -17,12 +17,6 @@ public class WoundManager : MonoBehaviour
         InvokeRepeating("ActivateRandomWound", woundBuffer, woundBuffer);
     }
 
-    void Update()
-    {
-        
-
-    }
-
     void ActivateRandomWound()
     {
         int index = Random.Range(0, woundList.Capacity - 1);

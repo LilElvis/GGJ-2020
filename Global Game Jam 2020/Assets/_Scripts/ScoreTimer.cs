@@ -17,7 +17,6 @@ public class ScoreTimer : MonoBehaviour
     {
         if (!paused)
         {
-            //timerText1.text = minutes.ToString("00") + ":" + seconds.ToString("00");
             scoreTime += Time.deltaTime;
 
             minutes = (int)(scoreTime / 60f);
@@ -64,5 +63,4 @@ public class ScoreTimer : MonoBehaviour
         }
     }
     //------------------------------------------------------------------------------------------------
-
 }

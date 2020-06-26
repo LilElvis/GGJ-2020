@@ -5,14 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class SplashScreen : MonoBehaviour
 {
+    [SerializeField] private AudioSource mainSource;
+
     private void Start()
     {
         StartCoroutine(LoadNextScene());
     }
+    
+    public void playStretchySound()
+    {
+        print("Play Now");
+        mainSource.Play();
+    }
 
     IEnumerator LoadNextScene()
     {
-        yield return new WaitForSeconds(3.5f);
+        yield return new WaitForSeconds(6.0f);
 
         SceneManager.LoadScene("MainMenu");
     }
